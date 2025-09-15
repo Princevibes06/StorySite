@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Welcome - StoryCraft{% endblock %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero bg-gradient-to-r from-teal-600 to-cyan-500 text-white py-20">
+  <div class="container mx-auto text-center px-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Create Beautiful Stories</h1>
+    <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+      Write, save, and manage your stories with ease. Whether you're a casual writer or an aspiring author,
+      StoryCraft is your creative playground.
+    </p>
+    <div class="flex justify-center gap-4">
+      <a href="{{ url_for('signup') }}" 
+         class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg shadow-lg transition transform hover:scale-105">
+         ✨ Create Your Account
+      </a>
+      <a href="{{ url_for('login') }}" 
+         class="bg-white hover:bg-gray-200 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-lg transition transform hover:scale-105">
+         🚀 Start Writing Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-12">How It Works</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="p-6 bg-white shadow rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">📝 Write Your Story</h3>
+        <p class="text-gray-600">Use our simple editor to bring your ideas to life. Focus on creativity, not distractions.</p>
+      </div>
+      <div class="p-6 bg-white shadow rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">💾 Save & Organize</h3>
+        <p class="text-gray-600">Keep all your stories safe in one place. Access them anytime, anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose StoryCraft -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-8">Why Choose StoryCraft?</h2>
+    <p class="text-gray-700 max-w-2xl mx-auto">
+      StoryCraft isn’t just another writing tool. It’s designed to inspire creativity, keep your stories
+      organized, and make writing enjoyable. No clutter, no confusion — just pure storytelling.
+    </p>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Sign Up - StoryCraft{% endblock %}
+{% block content %}
+<div class="card small-card">
+    <h2 class="card-title">Create an Account</h2>
+    <form action="{{ url_for('signup') }}" method="post" class="form">
+        <label class="label">Email
+            <input name="email" type="email" required class="input"/>
+        </label>
+        <label class="label">Password
+            <input name="password" type="password" required class="input"/>
+        </label>
+        <button type="submit" class="btn btn-block btn-primary">Sign Up</button>
+    </form>
+    <p class="muted small">Already have an account? <a href="{{ url_for('login') }}">Log in here</a>.</p>
+</div>
+{% endblock %}

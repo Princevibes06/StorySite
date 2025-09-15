@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Confirm Delete - StoryCraft{% endblock %}
+{% block content %}
+<div class="card small-card">
+    <h2 class="card-title">Confirm Delete</h2>
+    <p>Are you sure you want to delete the story: <strong>{{ story['title'] }}</strong>?</p>
+
+    <form action="{{ url_for('confirm_delete', story_id=story['id']) }}" method="post" style="margin-top:1rem;">
+        <button type="submit" class="btn danger">Yes — Delete</button>
+        <a class="btn" href="{{ url_for('dashboard') }}" style="margin-left:0.5rem;">Cancel</a>
+    </form>
+</div>
+{% endblock %}

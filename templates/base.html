@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{% block title %}StoryCraft{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <meta name="color-scheme" content="light dark">
+</head>
+<body class="site-body">
+
+    <!-- Header / Navbar -->
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="{{ url_for('index') }}">StoryCraft</a>
+
+            <!-- checkbox hack for mobile menu -->
+            <input id="menu-toggle" class="menu-toggle" type="checkbox" aria-hidden="true" />
+            <label for="menu-toggle" class="menu-btn" aria-hidden="true">
+                <span></span>
+            </label>
+
+            <!-- desktop links -->
+            <nav class="nav-links">
+                {% if g.user %}
+                    <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a class="nav-link" href="{{ url_for('new_story') }}">New Story</a>
+                    <a class="nav-cta" href="{{ url_for('logout') }}">Sign Out</a>
+                {% else %}
+                    <a class="nav-cta" href="{{ url_for('login') }}">Login</a>
+                    <a class="nav-cta secondary" href="{{ url_for('signup') }}">Sign Up</a>
+                {% endif %}
+            </nav>
+
+            <!-- mobile menu -->
+            <div class="mobile-nav">
+                {% if g.user %}
+                <a class="mobile-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a class="mobile-link" href="{{ url_for('new_story') }}">New Story</a>
+                <a class="mobile-link danger" href="{{ url_for('logout') }}">Sign Out</a>
+                {% else %}
+                <a class="mobile-link" href="{{ url_for('login') }}">Login</a>
+                <a class="mobile-link" href="{{ url_for('signup') }}">Sign Up</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <!-- Flash messages -->
+    <div class="flash-wrap">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Main -->
+    <main class="container main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-row">
+            <div>
+                <div class="brand footer-brand">StoryCraft</div>
+                <p class="muted">© 2025 StoryCraft. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a class="muted" href="#">Terms</a>
+                <a class="muted" href="#">Privacy</a>
+                <a class="muted" href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
