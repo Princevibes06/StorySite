@@ -6,23 +6,23 @@
     --mid: #007C78;
     --light-mid: #00BAB4;
     --light: #E0F2F1;
-  
+
     --body-bg: #f8f9fa;
     --body-text: #333;
-  
+
     --warning-bg: #fff3cd;
     --warning-border: #ffc107;
-  
+
     --btn-hover: #e04e00;
     --format-hover: #e0e0e0;
-  
+
     --modal-bg: rgba(0,0,0,0.5);
     --ui-border: #ddd;
-  
+
     --footer-bg: #2d3748;
     --accent-orange: #ff7a18; /* fallback accent */
   }
-  
+
   /* Base reset */
   * { box-sizing: border-box; }
   body.site-body{
@@ -34,14 +34,14 @@
     display:flex;
     flex-direction:column;
   }
-  
+
   /* Container */
   .container{
     max-width:1100px;
     margin:0 auto;
     padding:1rem;
   }
-  
+
   /* Header / Navbar */
   .site-header{
     background:var(--footer-bg);
@@ -74,7 +74,7 @@
     border-radius:8px;
   }
   .nav-link:hover{ background: rgba(255,255,255,0.03); }
-  
+
   .nav-cta{
     background:var(--primary);
     color:white;
@@ -84,7 +84,7 @@
     font-weight:600;
   }
   .nav-cta:hover{ background:var(--btn-hover); }
-  
+
   .nav-cta.secondary{
     background:transparent;
     color:var(--light);
@@ -93,7 +93,7 @@
   .nav-cta.secondary:hover{
     background: rgba(255,255,255,0.04);
   }
-  
+
   /* Mobile menu (checkbox hack) */
   .menu-toggle{ display:none; }
   .menu-btn{
@@ -115,12 +115,12 @@
   .menu-btn::before{ top:6px; }
   .menu-btn span{ top:calc(50% - 1.5px); }
   .menu-btn::after{ bottom:6px; }
-  
+
   /* mobile nav area (hidden on desktop) */
   .mobile-nav{
     display:none;
   }
-  
+
   /* Flash messages */
   .flash-wrap { margin-top:0.5rem; }
   .flash {
@@ -132,7 +132,7 @@
   .flash.success{ background:#16a34a; color:white; }
   .flash.danger{ background:#dc2626; color:white; }
   .flash.info{ background:#2563eb; color:white; }
-  
+
   /* Main styles for cards, grid, forms */
   .main-content{ padding:2rem 1rem; flex:1; }
   .card{
@@ -143,11 +143,13 @@
   }
   .small-card{ max-width:480px; margin:2rem auto; }
   .wide-card{ max-width:900px; margin:1rem auto; }
-  
+
   .card-title{ font-size:1.25rem; margin:0 0 0.75rem 0; font-weight:700; color:var(--dark-mid); font-family:"Playfair Display", serif; }
-  
+
   .form{ display:flex; flex-direction:column; gap:0.85rem; }
   .label{ font-size:0.95rem; display:block; color:#444; }
+
+  /* --- CORRECTION STARTS HERE --- */
   .input, .textarea{
     width:100%;
     padding:0.7rem 0.9rem;
@@ -156,10 +158,18 @@
     font-size:1rem;
     background:transparent;
     resize:vertical;
+    color: var(--body-text); /* Added to ensure text is visible */
   }
+
+  /* Added for consistent placeholder color */
+  .input::placeholder, .textarea::placeholder {
+      color: #999;
+  }
+  /* --- CORRECTION ENDS HERE --- */
+
   .input-xl{ font-size:1.05rem; font-weight:600; padding:0.8rem; }
   .textarea{ min-height:220px; line-height:1.5; font-family: "Playfair Display", serif;}
-  
+
   /* Buttons */
   .btn{
     display:inline-block;
@@ -173,22 +183,22 @@
     background: #f3f4f6;
   }
   .btn:hover{ background:var(--format-hover); }
-  
+
   .btn-primary{
     background:var(--primary);
     color:white;
     border-color: var(--primary);
   }
   .btn-primary:hover{ background:var(--btn-hover); border-color:var(--btn-hover); color:white; }
-  
+
   .btn-large{ padding:0.9rem 1.25rem; font-size:1.05rem; border-radius:12px; }
-  
+
   .btn-block{ width:100%; display:block; text-align:center; }
-  
+
   /* Danger */
   .btn.danger, a.btn.danger{ background:#ef4444; color:white; }
   .btn.danger:hover{ background:#dc2626; }
-  
+
   /* Dashboard layout */
   .dashboard-header{
     display:flex;
@@ -197,7 +207,7 @@
     gap:1rem;
     margin-bottom:1rem;
   }
-  
+
   /* Grid of story cards */
   .grid-cards{
     display:grid;
@@ -214,17 +224,17 @@
     -webkit-box-orient:vertical;
     overflow:hidden;
   }
-  
+
   /* Card actions */
   .card-actions{ display:flex; align-items:center; justify-content:space-between; gap:0.5rem; margin-top:0.9rem; }
   .actions{ display:flex; gap:0.5rem; align-items:center; }
-  
+
   /* small variant */
   .btn.small{ padding:0.35rem 0.6rem; font-size:0.9rem; }
-  
+
   /* small muted text */
   .muted{ color:#6b7280; font-size:0.95rem; }
-  
+
   /* Footer */
   .site-footer{
     background:var(--footer-bg);
@@ -234,19 +244,19 @@
   }
   .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; }
   .footer-brand{ font-family:"Playfair Display", serif; font-size:1.05rem; color:var(--light-mid); }
-  
+
   /* Responsive rules */
   @media (max-width: 900px){
     .grid-cards{ grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 700px){
     .grid-cards{ grid-template-columns: 1fr; }
-  
+
     /* show mobile menu button and hide desktop nav */
     .nav-links{ display:none; }
     .menu-btn{ display:block; }
     .mobile-nav{ display:none; width:100%; }
-  
+
     /* When checkbox toggled, show mobile nav */
     .menu-toggle:checked ~ .mobile-nav{
       display:block;
@@ -254,7 +264,7 @@
       padding:0.8rem;
       border-top:1px solid var(--ui-border);
     }
-  
+
     /* menu button animation (basic) when checked */
     .menu-toggle:checked + .menu-btn span{ background:transparent; }
     .menu-toggle:checked + .menu-btn::before{
@@ -263,9 +273,8 @@
     .menu-toggle:checked + .menu-btn::after{
       transform: translateY(-9px) rotate(-45deg);
     }
-  
+
     .menu-btn::before, .menu-btn::after, .menu-btn span{
       transition: transform .25s ease, background .15s ease;
     }
   }
-  
